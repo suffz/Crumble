@@ -42,8 +42,6 @@ type Target struct {
 	Hits int
 }
 
-var Rows [][][]int = [][][]int{{{64, 16, 72, 24}, {56, 16, 64, 24}, {48, 16, 56, 24}, {40, 16, 48, 24}, {32, 16, 40, 24}, {24, 16, 32, 24}, {16, 16, 24, 24}, {8, 16, 16, 24}, {0, 16, 8, 24}}, {{64, 8, 72, 16}, {56, 8, 64, 16}, {48, 8, 56, 16}, {40, 8, 48, 16}, {32, 8, 40, 16}, {24, 8, 32, 16}, {16, 8, 24, 16}, {8, 8, 16, 16}, {0, 8, 8, 16}}, {{64, 0, 72, 8}, {56, 0, 64, 8}, {48, 0, 56, 8}, {40, 0, 48, 8}, {32, 0, 40, 8}, {24, 0, 32, 8}, {16, 0, 24, 8}, {8, 0, 16, 8}, {0, 0, 8, 8}}}
-
 func TempCalc(interval, accamt int) time.Duration {
 	amt := interval / accamt
 	if amt < 10 {
@@ -122,12 +120,13 @@ func init() {
 		}
 	}
 
-	fmt.Print(utils.Logo(`_________                        ______ ______     
-__  ____/__________  ________ ______  /____  /____ 
-_  /    __  ___/  / / /_  __ '__ \_  __ \_  /_  _ \
-/ /___  _  /   / /_/ /_  / / / / /  /_/ /  / /  __/
-\____/  /_/    \__,_/ /_/ /_/ /_//_.___//_/  \___/ 
-
+	fmt.Print(utils.Logo(`                                                    
+ ,-----.                         ,--.   ,--.        
+'  .--./,--.--.,--.,--.,--,--,--.|  |-. |  | ,---.  
+|  |    |  .--'|  ||  ||        || .-. '|  || .-. : 
+'  '--'\|  |   '  ''  '|  |  |  || '-' ||  |\   --. 
+ '-----''--'    '----' '--'--'--' '---' '--' '----' 
+                                                    
 `))
 
 	if utils.Con.Bools.FirstUse {
@@ -999,7 +998,6 @@ func Get_CF_Clearance() (status int64, cookies []*network.Cookie) {
 			chromedp.Flag("disable-gpu", false),
 			chromedp.Flag("headless", false),
 			chromedp.Flag("enable-automation", false),
-			//chromedp.Flag("disable-extensions", true),
 			chromedp.Flag("window-size", "800,600"),
 			chromedp.UserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"),
 		)...),
