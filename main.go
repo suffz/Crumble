@@ -11,8 +11,8 @@ import (
 	"image"
 	"image/png"
 	"io"
-	"main/utils"
-	"main/webhook"
+	"main/packages/utils"
+	"main/packages/webhook"
 	"math/rand"
 	"net/http"
 	"os"
@@ -24,9 +24,9 @@ import (
 	"sync"
 	"time"
 
-	cu "main/Chrome"
-	"main/StrCmd"
-	"main/apiGO"
+	cu "main/packages/Chrome"
+	"main/packages/StrCmd"
+	"main/packages/apiGO"
 
 	"github.com/bwmarrin/discordgo"
 	"github.com/chromedp/cdproto/emulation"
@@ -47,7 +47,7 @@ func TempCalc(interval, accamt int) time.Duration {
 	if amt < 10 {
 		return time.Duration(amt) * time.Millisecond
 	}
-	return time.Duration((amt)-10) * time.Millisecond
+	return time.Duration(amt) * time.Millisecond
 }
 
 var Cookie string
@@ -164,9 +164,26 @@ func init() {
 		}
 		switch bearer.AccountType {
 		case "Microsoft":
-			utils.Accs["Microsoft"] = append(utils.Accs["Microsoft"], utils.Proxys_Accs{Proxy: utils.Proxy.Proxys[use_proxy], Accs: []apiGO.Info{bearer}})
-			utils.Accamt++
-			mfaamt++
+			if utils.First_mfa {
+				utils.Accs["Microsoft"] = []utils.Proxys_Accs{{Proxy: utils.Proxy.Proxys[use_proxy]}}
+				utils.First_mfa = false
+				use_proxy++
+			}
+			var am int = utils.Con.Settings.AccountsPerMfa
+			if am == 0 {
+				am = 1
+			}
+			if len(utils.Accs["Microsoft"][utils.Use_mfa].Accs) != am {
+				utils.Accs["Microsoft"][utils.Use_mfa].Accs = append(utils.Accs["Microsoft"][utils.Use_mfa].Accs, bearer)
+				utils.Accamt++
+				mfaamt++
+			} else {
+				utils.Use_mfa++
+				utils.Accamt++
+				mfaamt++
+				utils.Accs["Microsoft"] = append(utils.Accs["Microsoft"], utils.Proxys_Accs{Proxy: utils.Proxy.Proxys[use_proxy], Accs: []apiGO.Info{bearer}})
+				use_proxy++
+			}
 		case "Giftcard":
 			if utils.First_gc {
 				utils.Accs["Giftcard"] = []utils.Proxys_Accs{{Proxy: utils.Proxy.Proxys[use_proxy]}}
@@ -302,6 +319,7 @@ i Proxys in use    > <%v>
 i Recoverys Done   > <%v>
 i Accounts Details:
  - GC's Per Proxy  > <%v>
+ - MFA's Per Proxy > <%v>
  - Req per GC      > <%v>
  - Req per MFA     > <%v>
  - Spread GC       > <%v>
@@ -317,6 +335,7 @@ i Namemc Info:
 		use_proxy,
 		len(utils.Con.Recovery),
 		utils.Con.Settings.AccountsPerGc,
+		utils.Con.Settings.AccountsPerMfa,
 		utils.Con.Settings.GC_ReqAmt,
 		utils.Con.Settings.MFA_ReqAmt,
 		TempCalc((utils.Con.Settings.SleepAmtPerGc), gcamt),
@@ -333,6 +352,20 @@ func main() {
 		Version:        "v1.5.15-CR",
 		AppDescription: "Crumble is a open source minecraft turbo!",
 		Commands: map[string]StrCmd.Command{
+			"get-skins": {
+				Action: func() {
+					req, _ := http.NewRequest("GET", "https://namemc.com/minecraft-skins", nil)
+					req.AddCookie(&http.Cookie{Name: strings.Split(Cookie, "=")[0], Value: strings.Split(Cookie, "=")[1]})
+					req.Header.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36")
+					req.Header.Add("Origin", "https://namemc.com")
+					req.Header.Add("X-Forwarded-For", X_Forwarded_For())
+					req.Header.Add("Referer", "https://namemc.com/")
+					if resp, err := http.DefaultClient.Do(req); err == nil {
+						resp_body, _ := io.ReadAll(resp.Body)
+						fmt.Println(GetAllSkinsOnPage(string(resp_body)))
+					}
+				},
+			},
 			"key": {
 				Action: func() {
 					var account string
@@ -663,6 +696,51 @@ func main() {
 	} else {
 		app.Run()
 	}
+}
+
+type NamemcSkins struct {
+	Emoji          string `json:"emoji"`
+	NamemcUsername string `json:"owner"`
+	Number         string `json:"number"`
+	Stars          string `json:"stars"`
+	Time           string `json:"time"`
+	BodyURL        string `json:"bodyurl"`
+	HeadURL        string `json:"headurl"`
+}
+
+func GetAllSkinsOnPage(html string) (Return []NamemcSkins) {
+	Body := strings.Split(strings.Split(html, `<div class="row small-gutters justify-content-center">`)[1], `<nav>`)[0]
+	Resp := Body[:strings.LastIndex(Body, "</div>")]
+	for _, packs := range strings.Split(Resp, `<a href="/skin/`) {
+		Content := strings.Split(packs, "</a>")[0]
+		if strings.Contains(Content, "card-header") {
+			ID := strings.Split(Content, `"`)[0]
+			var emoji string
+			Data := strings.Split(strings.Split(Content, `<span`)[1], ">")[1]
+			if strings.Contains(Data, "img") {
+				emoji = strings.Split(strings.Split(Data, `alt="`)[1], `"`)[0]
+				Data = strings.Split(Data, "<img")[0]
+			} else {
+				Data = strings.Split(Data, `</span`)[0]
+			}
+			Name := Data
+			SkinNum := "#" + strings.Split(strings.Split(Content, `normal-sm">#`)[1], "</div>")[0]
+			Stars := strings.Split(Content, "★<")[0]
+			Stars = Stars[strings.LastIndex(Stars, ">")+1:] + "★"
+			base_time := strings.Split(strings.Split(Content, "★<")[1], `normal-sm">`)[1]
+			time := strings.Split(base_time, "<small>")[0] + strings.Split(strings.Split(base_time, "<small>")[1], "</small>")[0]
+			Return = append(Return, NamemcSkins{
+				Emoji:          emoji,
+				Time:           time,
+				NamemcUsername: Name,
+				Stars:          Stars,
+				Number:         SkinNum,
+				HeadURL:        fmt.Sprintf(`https://s.namemc.com/2d/skin/face.png?id=%v&scale=4`, ID),
+				BodyURL:        fmt.Sprintf("https://s.namemc.com/3d/skin/body.png?id=%v&model=classic&width=150&height=200", ID),
+			})
+		}
+	}
+	return
 }
 
 type Images struct {
