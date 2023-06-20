@@ -76,7 +76,7 @@ https://namemc.info/data/namemc/skin/data/god
 ```
 
 # /namemc/skins
-https://namemc.info/data/namemc/skins
+https://namemc.info/data/namemc/skins?pages=10
 ```json
 {
     "action": "message",
