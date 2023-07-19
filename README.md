@@ -15,6 +15,19 @@ the ign "god" will be used for areas that require a value.
 # /info/:name
 https://namemc.info/data/info/god
 
+```json
+{
+    "action": "message",
+    "desc": "god Returned Info.",
+    "code": "200",
+    "data": {
+        "status": "Unavailable",
+        "searches": "3577",
+        "headurl": "https://s.namemc.com/2d/skin/face.png?id=0ad00123b87bb341\u0026scale=4",
+        "bodyurl": "https://s.namemc.com/3d/skin/body.png?id=0ad00123b87bb341\u0026model=classic\u0026width=150\u0026height=200"
+    }
+}
+```
 # /3c
 https://namemc.info/data/3c
 > https://namemc.info/data/3c?3n (returns only three number igns, example: 123)
