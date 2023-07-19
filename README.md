@@ -11,8 +11,6 @@ This sniper also works well with webshare proxys, however, I have encountered is
 the ign "god" will be used for areas that require a value.
 
 ## /data/...
-# /profile/:name
-https://namemc.info/data/profile/god
 
 # /info/:name
 https://namemc.info/data/info/god
