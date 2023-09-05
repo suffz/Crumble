@@ -1,5 +1,8 @@
 
-# Crumble
+<h1 align="center">
+  <img src="https://avatars.githubusercontent.com/u/84757238?v=4"></img>
+</h1>
+
 A sniper that uses proxies and mass account support, it sends periodic requests.
 
 ⚠️ THIS DOES NOT WORK WITHOUT PROXIES
