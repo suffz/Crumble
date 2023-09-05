@@ -12,7 +12,7 @@
 		            align-items: center;
 		          }
 		
-		          .con img {
+		          .icon img {
 		            width: 80%;
 		            height: auto;
 		          }
