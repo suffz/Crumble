@@ -110,7 +110,6 @@ https://namemc.info/data/namemc/skins?pages=10
 ```
 
 # /data/namemc/skinart/logo/:name
-https://namemc.info/data/namemc/skinart/logo/god (returns a PNG of the users full row of skins to format there skinart)
 
 ![Example](https://namemc.info/data/namemc/skinart/logo/SamouraiClaimer)
 
