@@ -14,9 +14,7 @@ Note: If you are coming into this sniper expecting to claim anything with a sing
 # Api Documentation.
 the ign "god" will be used for areas that require a value.
 
-## /data/...
-
-# /info/:name
+# /data/info/:name
 https://namemc.info/data/info/god
 
 ```json
@@ -32,15 +30,15 @@ https://namemc.info/data/info/god
     }
 }
 ```
-# /3c
+# /data/3c
 https://namemc.info/data/3c
 > https://namemc.info/data/3c?3n (returns only three number igns, example: 123)
 > https://namemc.info/data/3c?3l (returns only three letter igns, example: abc)
 
-# /discord/:id
+# /data/discord/:id
 https://namemc.info/data/discord/12345678 (1234567 being the discord id, replies with the users discord username etc)
 
-# /namemc/head/:name
+# /data/namemc/head/:name
 https://namemc.info/data/namemc/head/god (returns the HEAD/BODY url example)
 ```json
 {
@@ -50,7 +48,7 @@ https://namemc.info/data/namemc/head/god (returns the HEAD/BODY url example)
 }
 ```
 
-# /namemc/frontpage?pages=10&searches=0
+# /data/namemc/frontpage?pages=10&searches=0
 https://namemc.info/data/namemc/frontpage?pages=10&searches=0 
 ```json
 {
@@ -69,7 +67,7 @@ https://namemc.info/data/namemc/frontpage?pages=10&searches=0
         ...
 ```
 
-# /namemc/skin/data/:name
+# /data/namemc/skin/data/:name
 https://namemc.info/data/namemc/skin/data/god
 ```json
 {
@@ -90,7 +88,7 @@ https://namemc.info/data/namemc/skin/data/god
       ...
 ```
 
-# /namemc/skins
+# /data/namemc/skins
 https://namemc.info/data/namemc/skins?pages=10
 ```json
 {
@@ -111,11 +109,12 @@ https://namemc.info/data/namemc/skins?pages=10
       ...
 ```
 
-# /namemc/skinart/logo/:name
+# /data/namemc/skinart/logo/:name
 https://namemc.info/data/namemc/skinart/logo/god (returns a PNG of the users full row of skins to format there skinart)
 
 ![Example](https://namemc.info/data/namemc/skinart/logo/SamouraiClaimer)
-# /profile/:name
+
+# /data/profile/:name
 https://namemc.info/data/profile/god
 ```json
 {
@@ -152,5 +151,3 @@ https://namemc.info/data/profile/god
     "views": "1094"
 }
 ```
-
-The End.
