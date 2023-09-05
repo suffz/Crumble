@@ -1,7 +1,7 @@
 
-<h1 align="center">
+<h1 align="center" class="icon">
   <a href="https://github.com/suffz/Crumble/edit/main/round.svg">
-		<img class="icon" src="https://avatars.githubusercontent.com/u/84757238?v=4"></img>
+		<img src="https://avatars.githubusercontent.com/u/84757238?v=4"></img>
 	</a>
 </h1>
 
