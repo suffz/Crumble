@@ -11,6 +11,8 @@ A sniper that uses proxies and mass account support, it sends periodic requests.
 
 Note: If you are coming into this sniper expecting to claim anything with a single account and no proxies you will be highly disappointed.
 
+Me when cloudflare adds x-forwarded-for protection and i cant bypass rate limits on namemc anymore <3
+
 # Api Documentation.
 the ign "god" will be used for areas that require a value.
 
