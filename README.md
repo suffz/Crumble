@@ -17,4 +17,4 @@ email:password
 OR
 bearertoken
 
-the legit plain text bearer token, with this it wont save to the config for logging purposes, but instead validate it by decrypting the string into a JWT, check if minecraft generated it, then pull the account info i.e is it a Giftcard, Microsoft, ETC
+the bearer token can be just the token itself, it validates it by decrypting the string into a JWT, checks if minecraft generated it, then pulls the account info i.e is it a Giftcard, Microsoft, ETC, in of which uses its send method.
