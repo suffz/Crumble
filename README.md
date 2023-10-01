@@ -18,3 +18,5 @@ OR
 bearertoken
 
 the bearer token can be just the token itself, it validates it by decrypting the string into a JWT, checks if minecraft generated it, then pulls the account info i.e is it a Giftcard, Microsoft, ETC, in of which uses its send method.
+
+Minecraft Auction + Namemc Info Bot: https://discord.com/api/oauth2/authorize?client_id=1157922376495943822&permissions=0&scope=applications.commands%20bot
