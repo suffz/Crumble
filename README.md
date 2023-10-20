@@ -27,8 +27,8 @@ API now shows profile information and searches, status, etc.
 
 the discord bot also has 2 new commands, /three and /skins.
 
-/three - send current cached 3 char list
-/skins - send a url to a image that will be parsed into skin-art format. (you apply via highest number to lowest)
+- /three - send current cached 3 char list
+- /skins - send a url to a image that will be parsed into skin-art format. (you apply via highest number to lowest)
 
 the three char api also now shows the dropping 3 chars along with there old users profile information.
 
