@@ -34,10 +34,10 @@ the three char api also now shows the dropping 3 chars along with there old user
 
 profile information has 2 new fields, data and hist, data shows badges like socials and location while hist gives information on the name hist of the profile.
 
-https://namemc.info/data/info/:name
-https://namemc.info/data/profile/:name
-https://namemc.info/data/3c (?3n or ?3l)
-https://namemc.info/data/namemc/frontpage?pages=1&searches=1
-https://namemc.info/data/namemc/skinart/logo/samouraisniper
+- https://namemc.info/data/info/:name
+- https://namemc.info/data/profile/:name
+- https://namemc.info/data/3c (?3n or ?3l)
+- https://namemc.info/data/namemc/frontpage?pages=1&searches=1
+- https://namemc.info/data/namemc/skinart/logo/samouraisniper
 
 these are the more important endpoints.
