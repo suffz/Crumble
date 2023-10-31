@@ -96,11 +96,9 @@ func init() {
 		utils.RGB = append(utils.RGB, fmt.Sprintf("rgb(%v,%v,%v)", rgb.R, rgb.G, rgb.B))
 	}
 
-	Logo()
-
-	fmt.Print(utils.Logo(`/~' _   _ _ |_ | _ 
-\_,||_|| | ||_)|(/_
-`))
+	if len(os.Args) == 1 {
+		go Logo()
+	}
 
 	var AccountsVer []string
 
@@ -401,6 +399,16 @@ func init() {
 }
 
 func main() {
+
+	Center.Clear()
+	if len(os.Args) == 1 {
+		fmt.Print(utils.Logo(`/~' _   _ _ |_ | _ 
+\_,||_|| | ||_)|(/_
+
+`))
+	} else {
+		fmt.Println(utils.Logo(":> " + strings.Join(os.Args[1:], " ")))
+	}
 	app := StrCmd.App{
 		Display:        utils.Logo(CURRSONG + " ⋅ "),
 		Version:        "v1.16.2",
@@ -1176,7 +1184,5 @@ func Logo() {
 	App_.PrintMiddleUncachedToBody(logo)
 
 	time.Sleep(2 * time.Second)
-
-	Center.Clear()
 
 }
