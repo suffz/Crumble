@@ -10,8 +10,6 @@
 Note: If you are coming into this sniper expecting to claim anything with a single account and no proxies you will be highly disappointed.
 
 [(API UPD NOTES) v1.0.0BETA](https://namemc.info/)
-
-Just added another "bypass" "method" to the api, results are much quicker now and proxyless. all front-page data is also cached to a database.
 - Implemented real-time caching, if you request a name without a profile itll update it in the database and return the profile info
 - the /data/info/:name endpoint now has a extra json entry "images" this is the base64 info for the skin images on the users profile.
 - /data/namemc/skinart/logo/:name checks for a active database entry and if the entry has profile data and any "images" within it, if not it falls back on real-time information.
