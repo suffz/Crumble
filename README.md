@@ -15,8 +15,6 @@ Note: If you are coming into this sniper expecting to claim anything with a sing
 - /data/namemc/skinart/logo/:name checks for a active database entry and if the entry has profile data and any "images" within it, if not it falls back on real-time information.
 - The website itself has gotten a overall change of UI and ive also fixed mobile support to a degree, i plan to make it functional soon (vps management, sniping tasks etc)
 
-May make this API key only soon, but i like to find work arounds to keep it low resource intensive, no paid services, method packed, so right now there really is no need.
-
 | This api bypasses cloudflare without the assistance of chrome drivers or external services, it is free and gives up to date data when the name isn't cached in the backend, it will remain online for as long as I'm willing to pay for a monthly vps.
 
 - https://namemc.info/data/info/:name (profile endpoint removed due to /info giving the same data)
