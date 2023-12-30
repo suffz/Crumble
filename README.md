@@ -23,6 +23,8 @@ Note: If you are coming into this sniper expecting to claim anything with a sing
 - https://namemc.info/data/namemc/skinart/logo/samouraisniper
 
 | clearance token task system PROXYS REQUIRED |
+This api uses the capmonster api, and you will need to supply your own token.
+
 - https://namemc.info/data/clearance (POST)
 
 Request Body:
