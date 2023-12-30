@@ -22,4 +22,82 @@ Note: If you are coming into this sniper expecting to claim anything with a sing
 - https://namemc.info/data/namemc/frontpage?pages=1&searches=1
 - https://namemc.info/data/namemc/skinart/logo/samouraisniper
 
-oh cloudflare..
+| clearance token task system PROXYS REQUIRED |
+- https://namemc.info/data/clearance (POST)
+
+Request Body:
+```json
+{
+	"useragent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+  	"capmonster_key":"67.....",
+  	"proxy":{
+    	"ip":"167.0.0.1",
+      	"port":"100",
+      	"user":"username",
+      	"password":"password"
+    }
+}
+```
+
+Response Body:
+```json
+{
+    "uuid": "UUIDHERE",
+    "result": {
+        "solution": {
+            "cf_clearance": ""
+        },
+        "cost": 0,
+        "status": "pending",
+        "errorId": 0,
+        "errorCode": null,
+        "errorDescription": null
+    },
+    "done": false,
+    "clearance": {
+	      "useragent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+  	    "capmonster_key":"67.....",
+  	    "proxy":{
+    	      "ip":"167.0.0.1",
+      	    "port":"100",
+      	    "user":"username",
+      	    "password":"password"
+        }
+    }
+}
+```
+
+- https://namemc.info/data/clearance/UUIDHERE (GET)
+
+Response Data:
+```json
+{
+    "uuid": "UUIDHERE",
+    "result": {
+        "solution": {
+            "cf_clearance": ".0H5jP9PO0Nc86xB8Ge7TJ..."
+        },
+        "cost": 0.0016,
+        "status": "ready",
+        "errorId": 0,
+        "errorCode": null,
+        "errorDescription": null
+    },
+    "done": false,
+    "clearance": {
+        "useragent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "capmonster_key": "679....",
+        "proxy": {
+            "ip": "167.0.0.1",
+            "port": "100",
+            "user": "user",
+            "password": "password"
+        }
+    }
+}
+```
+
+Error Response: (403)
+```json
+{"error":"Task doesnt exist."}
+```
