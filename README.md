@@ -45,6 +45,7 @@ Request Body:
 Response Body:
 ```json
 {
+    "balance": 5.9792,
     "uuid": "UUIDHERE",
     "result": {
         "solution": {
@@ -75,6 +76,7 @@ Response Body:
 Response Data:
 ```json
 {
+    "balance": 5.9792,
     "uuid": "UUIDHERE",
     "result": {
         "solution": {
