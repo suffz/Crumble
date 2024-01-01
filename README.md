@@ -15,6 +15,7 @@ upcoming updates:
 - sync/connect namemc account on-site
 - add ability to use your own api via supplying your own proxys and capmonster key
 - forums, global chat, profiles, general things to allow others to view logs of your previous successes and any posts about ads.
+- in relation to the ability to sync/connect a namemc account, the ability to follow bot and manage said profile from namemc may become a feature.
 
 | This api bypasses cloudflare without the assistance of chrome drivers or external services, it is free and gives up to date data when the name isn't cached in the backend, it will remain online for as long as I'm willing to pay for a monthly vps. |
 
