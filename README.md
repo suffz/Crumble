@@ -5,7 +5,9 @@
   </a>
 </h1>
 
-Note: If you are coming into this sniper expecting to claim anything with a single account and no proxies you will be highly disappointed. [Minecraft Auction + Namemc Info Bot](https://discord.com/api/oauth2/authorize?client_id=1157922376495943822&permissions=0&scope=applications.commands%20bot)
+[Minecraft Auction + Namemc Info Bot](https://discord.com/api/oauth2/authorize?client_id=1157922376495943822&permissions=0&scope=applications.commands%20bot)
+
+Note: If you are coming into this sniper expecting to claim anything with a single account and no proxies you will be highly disappointed.
 
 [(API UPD NOTES) v1.1.0_BETA](https://namemc.info/) 
 - Added a cloudflare clearance gen for namemc, uses YOUR proxys and YOUR capmonster api key to make the requests needed to return results.
