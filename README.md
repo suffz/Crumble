@@ -5,11 +5,7 @@
   </a>
 </h1>
 
-[Minecraft Auction + Namemc Info Bot](https://discord.com/api/oauth2/authorize?client_id=1157922376495943822&permissions=0&scope=applications.commands%20bot)
-
-Note: If you are coming into this sniper expecting to claim anything with a single account and no proxies you will be highly disappointed.
-
-[(API UPD NOTES) v1.1.0_BETA](https://namemc.info/) 
+[(API UPD NOTES) v1.1.0_BETA](https://namemc.info/) [Minecraft Auction + Namemc Info Bot](https://discord.com/api/oauth2/authorize?client_id=1157922376495943822&permissions=0&scope=applications.commands%20bot)
 - Added a cloudflare clearance gen for namemc, uses YOUR proxys and YOUR capmonster api key to make the requests needed to return results.
 - Added name checking to the /data/info endpoint.. and other endpoints relying on name > data conversion.. situation being names greater than 16 or invalid names (a-Z 0-9 _ names that dont contain these ranges of characters) shouldnt be requested on my side due to network usage.
 - deprecated the /data/namemc/head endpoint due to /data/info giving the same info and more.
